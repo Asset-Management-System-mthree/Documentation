@@ -47,7 +47,7 @@ The JwtAuthenticationFilter class is a custom filter used to handle JSON Web Tok
 
 #### Workflow
 
-- **Authorization Header Check**: Ensures only requests with a valid `Bearer` token are processed.
+- **Authorization Header Check**: Ensures only requests with a valid Bearer token are processed.
 - **Token Validation**: Verifies the JWT's authenticity.
 - **Security Context Update**: Sets the authenticated user in SecurityContextHolder if authentication is successful.
 
@@ -55,7 +55,7 @@ The JwtAuthenticationFilter class is a custom filter used to handle JSON Web Tok
 
 ### RestTemplateConfig.java
 
-The `RestTemplateConfig` class configures a RestTemplate bean, which is used to make RESTful HTTP requests within the application. It enables easy and synchronous communication with external APIs or other microservices.
+The RestTemplateConfig class configures a RestTemplate bean, which is used to make RESTful HTTP requests within the application. It enables easy and synchronous communication with external APIs or other microservices.
 
 #### Key Component
 
