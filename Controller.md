@@ -59,7 +59,7 @@ The GoldDataController class provides an endpoint to fetch and store current gol
 
 ### StockController.java
 
-The StockController class provides an endpoint to retrieve predicted stock prices based on user input. It communicates with the `StockService` to fetch predictions from an external source, such as a Flask API.
+The StockController class provides an endpoint to retrieve predicted stock prices based on user input. It communicates with the StockService to fetch predictions from an external source, such as a Flask API.
 
 #### Key Component
 
