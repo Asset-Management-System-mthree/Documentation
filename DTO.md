@@ -4,7 +4,7 @@ The LoginUserDto class is a Data Transfer Object (DTO) used for encapsulating th
 
 #### Fields
 
-- **email**: A String representing the user's email address. This field is used for user identification during the login process.
+- **email**: A String representing the user's email address. This field is used for user identification during the login process.n
 - **password**: A String representing the user's password. This field is used to authenticate the user during the login process.
 
 #### Methods
