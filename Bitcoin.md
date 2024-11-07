@@ -3,16 +3,9 @@
 ```markdown
 # Bitcoin Price Prediction
 
-This project uses historical Bitcoin price data to predict future prices with a machine learning model, specifically using the `CatBoostRegressor`. It leverages `yfinance` for data retrieval and `CatBoost` for model training. The model predicts the closing price of Bitcoin for the next day based on past values and provides predictions for today's price.
+This project uses historical Bitcoin price data to predict future prices using a machine learning model, specifically the CatBoostRegressor. It leverages yfinance for data retrieval and CatBoost for model training. The model predicts the closing price of Bitcoin for the next day based on past values and provides predictions for today's price.
 
-## Table of Contents
-- [Requirements](#requirements)n 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Workflow](#project-workflow)
-- [Model Evaluation](#model-evaluation)
-- [Visualization](#visualization)
-- [Future Scope](#future-scope)
+
 
 ## Requirements
 
@@ -27,13 +20,7 @@ This project uses historical Bitcoin price data to predict future prices with a 
 
 ## Installation
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/bitcoin-price-prediction.git
-   cd bitcoin-price-prediction
-   ```
-
-2. **Install Dependencies**
+Install Dependencies
    ```bash
    pip install -r requirements.txt
    ```
@@ -49,11 +36,11 @@ python bitcoin_price_prediction.py
 ## Project Workflow
 
 1. **Fetch Bitcoin Price Data**  
-   Use `yfinance` to download historical Bitcoin data from January 2005 to October 2024.
+   Use yfinance to download historical Bitcoin data from January 2005 to October 2024.
 
 2. **Data Preprocessing**  
    - Calculate daily returns (`Return`) for Bitcoin.
-   - Set the prediction target as the next day’s closing price (`Target`).
+   - Set the prediction target as the next day’s closing price (Target).
    - Drop rows with missing values.
 
 3. **Feature Selection**  
@@ -66,7 +53,7 @@ python bitcoin_price_prediction.py
    Split the data into training and test sets using an 80-20 ratio.
 
 5. **Model Training**  
-   Train a `CatBoostRegressor` model using the specified features.
+   Train a CatBoostRegressor`model using the specified features.
 
 6. **Predictions**  
    Use the trained model to predict test set values and compute mean squared error (MSE).
