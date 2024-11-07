@@ -39,7 +39,7 @@ python bitcoin_price_prediction.py
    Use yfinance to download historical Bitcoin data from January 2005 to October 2024.
 
 2. **Data Preprocessing**  
-   - Calculate daily returns (`Return`) for Bitcoin.
+   - Calculate daily returns (Return) for Bitcoin.
    - Set the prediction target as the next day’s closing price (Target).
    - Drop rows with missing values.
 
@@ -47,7 +47,7 @@ python bitcoin_price_prediction.py
    Features include:
    - Open, High, Low, Close prices
    - Volume
-   - Daily returns (`Return`)
+   - Daily returns (Return)
 
 4. **Train-Test Split**  
    Split the data into training and test sets using an 80-20 ratio.
@@ -79,7 +79,7 @@ The script plots both the actual and predicted Bitcoin prices on the test set to
 ## Future Scope
 
 Potential improvements include:
-- Hyperparameter tuning for `CatBoostRegressor` using techniques like `GridSearchCV`.
+- Hyperparameter tuning for CatBoostRegressor using techniques like GridSearchCV.
 - Incorporating additional features such as moving averages, sentiment analysis, or other technical indicators.
 - Using other algorithms for performance comparison.
 
