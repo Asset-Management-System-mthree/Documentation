@@ -3,7 +3,7 @@
 This class represents the response sent back to the client after a successful login attempt. It contains information necessary for the client to manage user sessions and authenticate future requests.
 
 ### Fields
-
+ 
 - private String token:
   - The authentication token generated upon successful login. This token is used for subsequent requests to authenticate the user.
 
