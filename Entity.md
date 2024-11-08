@@ -1,7 +1,7 @@
 ## BitCoinData.java
 
 This class represents the entity for Bitcoin data in the application, mapped to the bitcoin_data table in the database. It contains various attributes that correspond to the fields in the table.
-
+ 
 ### Annotations
 - @Entity: Specifies that this class is an entity and is mapped to a database table.
 - @Table(name = "bitcoin_data"): Defines the name of the table in the database to which this entity is mapped.
