@@ -1,4 +1,4 @@
-
+ 
 # Stock Price Prediction Using LSTM
 
 This project utilizes a Long Short-Term Memory (LSTM) model to predict the next day's stock closing price. The model is trained on historical stock data fetched from Yahoo Finance (yfinance), with `AAPL` (Apple Inc.) as the default stock. The project leverages `MinMaxScaler` for feature scaling, LSTM layers for sequence learning, and dropout layers to prevent overfitting.
