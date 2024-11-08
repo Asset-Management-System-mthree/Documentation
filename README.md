@@ -46,17 +46,17 @@ The chatbot uses natural language processing (NLP) to interpret user input and g
 
 1. **API Key Configuration**
    - Obtain the OpenAI API key from Microsoft Azure’s OpenAI service.
-   - Set up the environment variable for the API key (e.g., `OPENAI_API_KEY`) to ensure secure storage.
+   - Set up the environment variable for the API key (e.g., OPENAI_API_KEY) to ensure secure storage.
    - Ensure that the key has appropriate permissions for the required model and endpoint.
 
 2. **Environment Setup**
-   - Install necessary libraries for HTTP requests and JSON parsing (e.g., `requests`, `json` for Python).
-   - Set up the project environment (virtual environment recommended) and install dependencies listed in `requirements.txt`.
+   - Install necessary libraries for HTTP requests and JSON parsing (e.g., requests, json for Python).
+   - Set up the project environment (virtual environment recommended) and install dependencies listed in requirements.txt.
 
 3. **Endpoint Configuration**
    - Define the base URL for the Microsoft OpenAI API endpoint.
    - Set up the request parameters, including:
-     - Model type (e.g., `gpt-4`)
+     - Model type (e.g., gpt-4)
      - Temperature, max tokens, and other model parameters for response control.
 
 ## Usage
