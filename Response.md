@@ -2,7 +2,7 @@
 
 This interface serves as a repository for managing BitcoinData entities. It extends JpaRepository, providing a set of standard CRUD (Create, Read, Update, Delete) operations without the need for boilerplate code.
 
-### Annotations
+### Annotations 
 - @Repository: This annotation is typically used in Spring to indicate that the class is a repository, though it's not explicitly used here as extending JpaRepository automatically provides this functionality.
 
 ### Interface
