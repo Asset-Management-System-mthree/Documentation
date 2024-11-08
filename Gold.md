@@ -1,6 +1,6 @@
 
 # Gold Price Prediction Using Random Forest
-
+ 
 This project predicts the next day's gold price using a Random Forest Regressor trained on historical gold price data from Yahoo Finance. The project also includes feature engineering techniques such as moving averages, exponential moving averages, and lagged prices to enhance the model's predictive power.
 
 
