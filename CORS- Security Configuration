@@ -1,0 +1,139 @@
+Here’s the documentation for the `SecurityConfiguration.java` file in GitHub Markdown format:
+
+
+# SecurityConfiguration.java
+
+This file configures the security settings for the application, leveraging Spring Security to handle authentication, authorization, and Cross-Origin Resource Sharing (CORS) policies.
+
+## Overview
+
+The SecurityConfiguration class is annotated with `@Configuration` and `@EnableWebSecurity`, indicating it is a Spring Security configuration class. It provides:
+
+- JWT-based authentication.
+- Stateless session management.
+- CORS configuration to handle cross-origin requests.
+
+---
+
+## Key Components
+
+### Dependencies
+- **AuthenticationProvider**: Handles user authentication using custom logic.
+- **JwtAuthenticationFilter**: A custom filter to validate JWT tokens.
+
+### Constructor
+```java
+public SecurityConfiguration(
+    JwtAuthenticationFilter jwtAuthenticationFilter,
+    AuthenticationProvider authenticationProvider
+)
+```
+- Injects JwtAuthenticationFilter and AuthenticationProvider to enable JWT-based authentication and authorization.
+
+---
+
+### Security Filter Chain
+
+#### Method: securityFilterChain(HttpSecurity http)
+Configures the application's security settings.
+
+**Key Configurations:**
+- **CORS and CSRF:**  
+  Disables CSRF (`csrf().disable()`) and enables CORS (`http.cors()`).
+  
+- **Public Endpoints:**  
+  The following endpoints are accessible without authentication:
+  - /auth/**
+  - /api/news/fetch
+  - /api/news/financial
+  - `/api/nyse`
+  - `/api/nifty`
+  - `/api/custom-message`
+  
+- **Protected Endpoints:**  
+  Any other request requires authentication (`anyRequest().authenticated()`).
+
+- **Session Management:**  
+  Configures the session policy to be stateless (`SessionCreationPolicy.STATELESS`), ideal for JWT-based security.
+
+- **Authentication Provider:**  
+  Sets the custom `AuthenticationProvider` to handle user authentication.
+
+- **JWT Filter:**  
+  Adds the `JwtAuthenticationFilter` before the `UsernamePasswordAuthenticationFilter` to process JWT tokens.
+
+**Code Snippet:**
+```java
+@Bean
+public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http.cors().and()
+        .csrf().disable()
+        .authorizeHttpRequests()
+        .requestMatchers("/auth/**", "/api/news/fetch", "/api/news/financial", "/api/nyse", "/api/nifty")
+        .permitAll()
+        .anyRequest().authenticated()
+        .and()
+        .sessionManagement()
+        .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        .and()
+        .authenticationProvider(authenticationProvider)
+        .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+    
+    return http.build();
+}
+```
+
+---
+
+### CORS Configuration
+
+#### Method: `corsConfigurationSource()`
+Defines the CORS settings for the application.
+
+**Key Configurations:**
+- **Allowed Origins:**  
+  Allows requests from:
+  - `http://localhost:8080` (Backend)
+  - `http://localhost:4200` (Frontend)
+
+- **Allowed Methods:**  
+  Permits common HTTP methods (`GET`, `POST`, `PUT`, `DELETE`, `OPTIONS`).
+
+- **Allowed Headers:**  
+  Enables headers such as `Authorization`, `Content-Type`, and `Accept`.
+
+- **Exposed Headers:**  
+  Exposes the `Authorization` header to the frontend.
+
+- **Credentials:**  
+  Allows credentials to be included in requests (`setAllowCredentials(true)`).
+
+**Code Snippet:**
+```java
+@Bean
+CorsConfigurationSource corsConfigurationSource() {
+    CorsConfiguration configuration = new CorsConfiguration();
+    configuration.setAllowedOrigins(List.of("http://localhost:8080", "http://localhost:4200"));
+    configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+    configuration.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept"));
+    configuration.setExposedHeaders(List.of("Authorization"));
+    configuration.setAllowCredentials(true);
+
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", configuration);
+
+    return source;
+}
+```
+
+---
+
+## Summary
+
+The `SecurityConfiguration` class integrates Spring Security to secure the application. It handles:
+- Authentication using JWT tokens.
+- Stateless session management for scalability.
+- CORS policies to enable communication between the frontend and backend.
+
+This configuration ensures a secure and seamless experience across different clients and environments.
+```
